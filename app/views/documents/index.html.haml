@@ -1,0 +1,12 @@
+%h1 "Index page"
+%br
+- @documents.each do |document|
+  %h2 
+    = document.description
+  %h3
+    = link_to document.title, document
+  %p 
+    Published at
+    = document.created_at.strftime('%b %d, %y')
+  %p
+    = truncate(document.content, length:200)

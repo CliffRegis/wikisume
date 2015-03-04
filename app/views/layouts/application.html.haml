@@ -1,0 +1,28 @@
+!!!
+%html
+%head
+  %title WikiSume
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+  = csrf_meta_tags 
+%body
+  %navbar.navbar-default.navbar-fixed-top
+    .container
+      = link_to "WikiSume", root_path, class:"navbar-brand"
+      %ul.nav.navbar-nav.navbar-right
+        -if user_signed_in?
+          %li= link_to "new document", new_document_path
+  %p.notice= notice
+  %p.alert= alert
+
+  .container
+    .row 
+      .col-md-8
+        = yield
+      .col-md-4
+        %ul.list-group
+          = link_to "all documents", root_path, class: "list-group-item"
+          -Category.all.each do |category|
+            =link_to category.name, documents_path(category: category.name), class: "list-group-item"
+
+

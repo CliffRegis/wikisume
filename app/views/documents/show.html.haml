@@ -1,0 +1,10 @@
+%h1= @document.description
+%p= @document.title
+%br
+= @document.content
+%br
+.btn-group
+- if user_signed_in?
+  = link_to 'Home', root_path, class: "btn btn-default"
+  = link_to 'Edit', edit_document_path, class: "btn btn-default"
+  = link_to 'Delete', document_path(@document), method: :delete, data: {confirm: "are you sure"}, class: "btn btn-default"
