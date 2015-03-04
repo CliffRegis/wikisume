@@ -1,0 +1,19 @@
+<h2><%= @user.email %></h2>
+   
+ 
+<div class="row">
+   <div class="tabbable tabs-left">
+     <ul class="nav nav-tabs">
+       <li class="active">Documents</li>
+     </ul>
+     <h4>You have &nbsp<%= @user.documents.count %> documents</h4>
+     <div class="tab-content">
+       <div class="tab-pane active">
+         <% @documents.each do |document| %>
+            <%=link_to document.title, document_path, class: "list-group-item" %>
+         <% end %>
+       </div>
+     </div>
+   </div>
+ </div>
+

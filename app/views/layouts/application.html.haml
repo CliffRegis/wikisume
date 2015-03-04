@@ -10,19 +10,22 @@
     .container
       = link_to "WikiSume", root_path, class:"navbar-brand"
       %ul.nav.navbar-nav.navbar-right
-        -if user_signed_in?
-          %li= link_to "new document", new_document_path
+        -if current_user.present?
+          %li= link_to "Create document", new_document_path
+          %li= link_to  "My Docs", current_user
+          %li= link_to  "Account", edit_user_registration_path
+          %li= link_to  "Log-out", destroy_user_session_path, method: :delete, data: {confirm: "are you sure"}
+          / %li= link_to "My Docs", user(current_user)
+        -else 
+          %li= link_to "Sign In", new_user_session_path, class: 'btn btn-default btn-lg' 
+          %li= link_to "Sign Up", new_user_registration_path, class: 'btn btn-default btn-lg'
   %p.notice= notice
   %p.alert= alert
-
+  %br
+  %br
   .container
     .row 
       .col-md-8
         = yield
-      .col-md-4
-        %ul.list-group
-          = link_to "all documents", root_path, class: "list-group-item"
-          -Category.all.each do |category|
-            =link_to category.name, documents_path(category: category.name), class: "list-group-item"
-
+        
 
