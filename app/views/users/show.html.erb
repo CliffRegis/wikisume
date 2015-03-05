@@ -1,6 +1,8 @@
-<h2><%= @user.email %></h2>
-   <h4>You have &nbsp<%= @user.documents.count %> documents</h4>
- 
+<h2><%= @user.username %></h2>
+  <h4>You have &nbsp<%= @user.documents.count %> documents</h4>
+  <div><%=link_to "Add new category", new_category_path, class: 'btn btn-success' %></div>
+  <br>
+
 <table id="tableindex" class="table table-hover" >
   <thead>
     <tr>
@@ -22,6 +24,4 @@
   <tbody>
 </table>
 
-
-<%=link_to "New category", new_category_path, class: 'btn btn-default' %>
 

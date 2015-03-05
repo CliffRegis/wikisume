@@ -21,9 +21,7 @@ class CategoriesController < ApplicationController
 
 
   def show
-    # @category_id = Category.find_by(name: params[:category]).user_id
-    # @documents = Document.where(category_id: @category_id)
-
+    
   end
 
   def edit

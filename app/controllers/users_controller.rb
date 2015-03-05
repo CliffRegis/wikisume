@@ -16,15 +16,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @document = Document.find(params[:id])
-    # @category = Category.find(params[:id])
-    # @documents = current_user.documents
-    # @categories = @documents.where(user_id: current_user.friends.pluck(:id))
+    
   end
     
   private
  
   def user_params
-    params.require(:user).permit(:name, :email,:title, :content, :description, :category_id)
+    params.require(:user).permit(:name, :avatar, :username, :email,:title, :content, :description, :category_id)
   end
 end

@@ -1,6 +1,6 @@
 = simple_form_for @document do |f|
   = f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a job category"}
-  = f.select :description, [['Resume'],['Cover'],['Thanks']]
+  = f.select :description, [['Resume'],['Cover Letter'],['Email']]
   = f.input :title
   = f.input :content
   = f.submit 
