@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 resources :users
 
 # authenticate(:user) do
-#   get '/users', to: 'users#show'
+#   current_user
 # end
 
 
