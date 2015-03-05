@@ -2,9 +2,23 @@
 %html
 %head
   %title WikiSume
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true 
   = javascript_include_tag 'application', 'data-turbolinks-track' => true 
-  = csrf_meta_tags 
+  = csrf_meta_tags
+  %script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+  %script(src="//code.jquery.com/jquery-1.11.1.min.js")
+  %script(src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js")
+  %script(src="//cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js")
+  %script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js")
+  %script(src="//cdn.datatables.net/plug-ins/3cfcc339e89/sorting/datetime-moment.js")
+  :javascript
+    $(document).ready(function() {
+      $('#tableindex').DataTable( {
+       "order": [[ 1, "desc" ]]
+      });
+    });
+
+
 %body
   %navbar.navbar-default.navbar-fixed-top
     .container
@@ -12,8 +26,8 @@
       %ul.nav.navbar-nav.navbar-right
         -if current_user.present?
           %li= link_to "Create document", new_document_path
-          %li= link_to  "My Docs", current_user
-          %li= link_to  "Account", edit_user_registration_path
+          %li= link_to  "My Docs", current_user 
+          %li= link_to  "| Account", edit_user_registration_path
           %li= link_to  "Log-out", destroy_user_session_path, method: :delete, data: {confirm: "are you sure"}
           / %li= link_to "My Docs", user(current_user)
         -else 

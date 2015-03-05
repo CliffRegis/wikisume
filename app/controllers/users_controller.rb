@@ -16,18 +16,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @documents = @user.documents(current_user)
-    if params[:id]
-        @user = User.find(params[:id])
-    else
-      # Show the currently logged in user
-      @user = current_user
-    end
+    @document = Document.find(params[:id])
+    @documents = @user.documents
+    @category = @document.category
+
   end
     
   private
  
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email,:title, :content, :description, :category_id)
   end
 end

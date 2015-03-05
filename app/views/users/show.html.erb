@@ -1,19 +1,22 @@
 <h2><%= @user.email %></h2>
-   
+   <h4>You have &nbsp<%= @user.documents.count %> documents</h4>
  
-<div class="row">
-   <div class="tabbable tabs-left">
-     <ul class="nav nav-tabs">
-       <li class="active">Documents</li>
-     </ul>
-     <h4>You have &nbsp<%= @user.documents.count %> documents</h4>
-     <div class="tab-content">
-       <div class="tab-pane active">
-         <% @documents.each do |document| %>
-            <%=link_to document.title, document_path, class: "list-group-item" %>
-         <% end %>
-       </div>
-     </div>
-   </div>
- </div>
+<table id="tableindex" class="table table-hover" >
+  <thead>
+    <tr>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by title"><button type="button" class="btn btn-default">Title</button></th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by category"><button type="button" class="btn btn-default">Category</button></th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by date"><button type="button" class="btn btn-default">Date</button></th>
+    </tr>
+  <thead>
+  <tbody>
+    <% @user.documents.each do |document| %>
+    <tr>
+      <td > <%= link_to document.title, document%></td>
+      <td ><%= document.category.name %></td> 
+      <td ><%= document.created_at.strftime "%Y-%m-%d " %></td>
+     </tr>
+   <% end %>
+  <tbody>
+</table>
 

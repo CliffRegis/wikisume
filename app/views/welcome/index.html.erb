@@ -1,10 +1,17 @@
 <br/>
-<div class="jumbotron">
-  <h1>WikiSume</h1>
-  <p>Share your Resume, coverletter and Thank you Email with friends!</p>
-  <p>
-      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-default' %> or 
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-default' %> today!
-  </p>
-</div>
+<% if current_user.present? %>
+  <div class="jumbotron">
+      <h1>WikiSume</h1>
+      <p> Share your Resume, Coverletter and Thank you Email with friends!</p>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <h1>WikiSume</h1>
+    <p>Share your Resume, coverletter and Thank you Email with friends!</p>
+    <p>
+        <%= link_to "Sign In", new_user_session_path, class: 'btn btn-default' %> or 
+        <%= link_to "Join Us", new_user_registration_path, class: 'btn btn-default' %> today!
+    </p>
+  </div>
+<% end %>
 
