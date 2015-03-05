@@ -3,13 +3,8 @@ Rails.application.routes.draw do
 
   
   resources :documents
-  
-  
-resources :users
-
-# authenticate(:user) do
-#   current_user
-# end
+  resources :categories
+  resources :users
 
 
   root to: 'welcome#index'

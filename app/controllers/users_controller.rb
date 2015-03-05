@@ -16,10 +16,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @document = Document.find(params[:id])
-    @documents = @user.documents
-    @category = @document.category
-
+    # @document = Document.find(params[:id])
+    # @category = Category.find(params[:id])
+    # @documents = current_user.documents
+    # @categories = @documents.where(user_id: current_user.friends.pluck(:id))
   end
     
   private

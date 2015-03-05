@@ -6,6 +6,7 @@
     <tr>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by title"><button type="button" class="btn btn-default">Title</button></th>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by category"><button type="button" class="btn btn-default">Category</button></th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by Document type"><button type="button" class="btn btn-default">Document type</button></th>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by date"><button type="button" class="btn btn-default">Date</button></th>
     </tr>
   <thead>
@@ -14,9 +15,13 @@
     <tr>
       <td > <%= link_to document.title, document%></td>
       <td ><%= document.category.name %></td> 
+      <td ><%= document.description %></td> 
       <td ><%= document.created_at.strftime "%Y-%m-%d " %></td>
      </tr>
    <% end %>
   <tbody>
 </table>
+
+
+<%=link_to "New category", new_category_path, class: 'btn btn-default' %>
 

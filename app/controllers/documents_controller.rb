@@ -25,7 +25,7 @@ class DocumentsController < ApplicationController
   end
 
   def show
-
+   
   end
 
   def edit
@@ -41,7 +41,11 @@ class DocumentsController < ApplicationController
 
   def destroy
     if @document.destroy
+      flash[:notice] = "document was deleted."
       redirect_to root_path
+    else
+      flash[:error] = "Error with deleting document. Please try again."
+      render :show
     end
   end
   
