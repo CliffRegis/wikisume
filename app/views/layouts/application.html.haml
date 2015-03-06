@@ -11,13 +11,14 @@
   %script(src="//cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js")
   %script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js")
   %script(src="//cdn.datatables.net/plug-ins/3cfcc339e89/sorting/datetime-moment.js")
+  
   :javascript
     $(document).ready(function() {
       $('#tableindex').DataTable( {
        "order": [[ 1, "desc" ]]
       });
     });
-
+  
 
 %body
   %navbar.navbar-default.navbar-fixed-top

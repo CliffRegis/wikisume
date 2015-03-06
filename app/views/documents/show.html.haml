@@ -1,7 +1,12 @@
+%script(src="epiceditor.min.js")
+  var editor = new EpicEditor().load();
+
 %h1= @document.description
 %p= @document.title
 %br
-= @document.content
+%div#epiceditor
+  = @document.content 
+
 %br
 .btn-group
 - if user_signed_in?
