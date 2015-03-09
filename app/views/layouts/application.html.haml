@@ -11,23 +11,23 @@
   %script(src="//cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js")
   %script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js")
   %script(src="//cdn.datatables.net/plug-ins/3cfcc339e89/sorting/datetime-moment.js")
-  
+  %script(src="epiceditor.min.js")
+
   :javascript
     $(document).ready(function() {
       $('#tableindex').DataTable( {
-       "order": [[ 1, "desc" ]]
+        "order": [[ 1, "desc" ]],
+        "paging": false
       });
     });
   
-
 %body
   %navbar.navbar-default.navbar-fixed-top
     .container
       = link_to "WikiSume", root_path, class:"navbar-brand"
       %ul.nav.navbar-nav.navbar-right
         -if current_user.present?
-          %li= link_to "Create document", new_document_path
-          %li= link_to  "My Docs", current_user 
+          %li= link_to  "My Docs", current_user, class: 'btn btn-default'  
           %li= link_to  "| Account", edit_user_registration_path
           %li= link_to  "Log-out", destroy_user_session_path, method: :delete, data: {confirm: "are you sure"}
           %li= link_to current_user.username, current_user, {:style => "color:black"}

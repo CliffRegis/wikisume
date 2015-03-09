@@ -1,4 +1,10 @@
-%h1 Edit document
-
 =render 'form'
-= link_to "Back", root_path
+
+.col-md-6.col-md-push-4
+  .topdoc
+    %h4 Copy 
+    = form_for @document.dup do |f|
+      = f.hidden_field :content
+      = f.text_area :content, :size=>"60x30"
+    
+ 

@@ -15,10 +15,9 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require 'epiceditor'
 //= require_tree .
 $(document).ready(function() {
   $('#myToolTip').tooltip();
 });
-$ (document).ready(function() {
-  $('#tableindex').DataTable();
-});
+

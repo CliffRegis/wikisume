@@ -37,6 +37,8 @@ class DocumentsController < ApplicationController
     else 
       render 'edit'
     end
+    @ddocument = @document.content
+    @dupdocument = @ddocument.dup
   end
 
   def destroy

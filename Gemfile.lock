@@ -83,6 +83,8 @@ GEM
     multi_json (1.10.1)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
+    pundit (0.2.3)
+      activesupport (>= 3.0.0)
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -159,6 +161,7 @@ DEPENDENCIES
   jquery-datatables-rails (~> 3.1.1)
   jquery-rails
   mini_magick
+  pundit
   rails (= 4.1.4)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

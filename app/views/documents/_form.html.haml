@@ -1,6 +1,15 @@
-= simple_form_for @document do |f|
-  = f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a job category"}
-  = f.select :description, [['Resume'],['Cover Letter'],['Email']]
-  = f.input :title
-  = f.input :content
-  = f.submit 
+.col-md-6
+  = simple_form_for @document do |f|
+    = f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a job category"}
+    = f.select :description, [['Resume'],['Cover Letter'],['Email']]
+    = f.input :title
+    %h4 Original 
+    = f.text_area :content, :size=>"60x20"
+    = f.label :document 
+    = f.file_field :document 
+    
+       
+    = f.submit "Save", class: 'btn btn-success' 
+  
+
+
